@@ -7,11 +7,14 @@ if(!$_SESSION) {
     header("location: /hotelindahhai/view/login.php");
 }
 
+$list_kamar = $koneksi->query("SELECT * FROM kamar");
+$list_fasilitas_kamar = $koneksi->query("SELECT * FROM fasilitas_kamar");
+
 // Digunakan Ketika Update
 $id = $_GET && $_GET['id'] ? $_GET['id'] : 0;
 $dataById = [];
 if($id) {
-    $sql = "SELECT * FROM fasilitas_kamar WHERE id_fasilitas_kamar='$id'";
+    $sql = "SELECT * FROM detail_kamar WHERE id='$id'";
     $result = $koneksi->query($sql);
     $dataById = $result->fetch_assoc();
 }
@@ -20,20 +23,13 @@ if($id) {
 $alert = false;
 
 if (isset($_POST['simpan'])) {
-    $id_fasilitas_kamar = $_POST['id_fasilitas_kamar'];
-    $nama_fasilitas_kamar = $_POST['nama_fasilitas_kamar'];
-  
-    $image_fasilitas_kamar = $_FILES['foto_fasilitas_kamar']['name'];
-
-    $destination_path = '../../assets/admin/image/';
-
-    $target_path = $destination_path . basename( $_FILES["foto_fasilitas_kamar"]["name"]);
-    @move_uploaded_file($_FILES['foto_fasilitas_kamar']['tmp_name'], $target_path);
+    $id_kamar = $_POST['tipe_kamar'];
+    $id_fasilitas_kamar = $_POST['fasilitas_kamar'];
 
     if($id) {
-        $sql = "UPDATE fasilitas_kamar SET id_fasilitas_kamar='$id_fasilitas_kamar', fasilitas_kamar='$nama_fasilitas_kamar', image_fasilitas_kamar='$image_fasilitas_kamar' WHERE id_fasilitas_kamar='$id_fasilitas_kamar'";
+        $sql = "UPDATE detail_kamar SET id_kamar='$id_kamar', id_fasilitas_kamar='$id_fasilitas_kamar' WHERE id='$id'";
     }else {
-        $sql = "INSERT INTO `fasilitas_kamar` (`id_fasilitas_kamar`, `fasilitas_kamar`, `image_fasilitas_kamar`) VALUES ('$id_fasilitas_kamar', '$nama_fasilitas_kamar', '$image_fasilitas_kamar')";
+        $sql = "INSERT INTO `detail_kamar` (`id_kamar`, `id_fasilitas_kamar`) VALUES ('$id_kamar', '$id_fasilitas_kamar')";
     }
 
     if ($koneksi->query($sql) === TRUE) {
@@ -81,28 +77,38 @@ include "../layout/navbar2.php";
             </nav>
             <div class="card">
                 <div class="card-body">
-                    <h2>INPUT FASILITAS KAMAR</h2>
+                    <h2>INPUT Detail Fasilitas Kamar</h2>
 
                     <?php if ($alert) : ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            Data Fasilitas Kamar Berhasil <?= $id ? 'diubah' : 'ditambahkan' ?> 
+                            Data Detail Fasilitas Kamar Berhasil <?= $id ? 'diubah' : 'ditambahkan' ?> 
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     <?php endif;  ?>
 
+                    <!-- Dropdown Select Option, untuk pilih kamar dan fasilitas kamar untuk di tambahkan ke tabel detail_kamar -->
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Id Fasilitas Kamar</label>
-                            <input type="text" required name="id_fasilitas_kamar" value="<?= $dataById && $dataById['id_fasilitas_kamar'] ? $dataById['id_fasilitas_kamar'] : '' ?>" class="form-control" id="exampleFormControlInput1" placeholder="FK-01">
+                            <label for="tipe_kamar" class="form-label">Tipe Kamar</label>
+                            <select class="form-select" name="tipe_kamar" aria-label="Default select example">
+                                <option selected>Pilih Tipe Kamar</option>
+                                <?php while($kamar = mysqli_fetch_assoc($list_kamar)) : ?>
+                                    <option value="<?= $kamar['id_kamar'] ?>"><?= $kamar['tipe_kamar'] ?></option>
+                                <?php endwhile; ?>
+                            </select>
                         </div>
+
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nama Fasilitas Kamar</label>
-                            <input type="text" required value="<?= $dataById && $dataById['fasilitas_kamar'] ? $dataById['fasilitas_kamar'] : '' ?>" name="nama_fasilitas_kamar" class="form-control" id="exampleFormControlInput1" placeholder="Swimmingpool Indoor">
+                            <label for="tipe_kamar" class="form-label">Fasilitas Kamar</label>
+                            <select class="form-select" name="fasilitas_kamar" aria-label="Default select example">
+                                <option selected>Pilih Fasilitas Kamar</option>
+                                <?php while($fasilitas_kamar = mysqli_fetch_assoc($list_fasilitas_kamar)) : ?>
+                                    <option value="<?= $fasilitas_kamar['id_fasilitas_kamar'] ?>"><?= $fasilitas_kamar['fasilitas_kamar'] ?></option>
+                                <?php endwhile; ?>
+
+                            </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Foto Fasilitas Kamar</label>
-                            <input type="file" name="foto_fasilitas_kamar" class="form-control" id="exampleFormControlInput1">
-                        </div>
+                        
                         <div class="mb-3 d-flex justify-content-between">
                             <a href="/hotelindahhai/admin/fasilitas_kamar/data.php" class="btn btn-outline-primary">Kembali</a>
                             <button class="btn btn-info" name="simpan" type="submit">

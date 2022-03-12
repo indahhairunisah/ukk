@@ -1,7 +1,13 @@
 <?php
 include "../../model/koneksi.php";
+session_start();
+
+if(!$_SESSION) {
+    header("location: /hotelindahhai/view/login.php");
+}
 
 
+//buat nampilin data kamar sebelumnya/edit
 $id = $_GET && $_GET['id'] ? $_GET['id'] : 0;
 $dataById = [];
 if($id) {
@@ -12,14 +18,15 @@ if($id) {
 
 $alert = false;
 
+//buat tambah data kamar
 if (isset($_POST['simpan'])) {
     $id_kamar = $_POST['id_kamar'];
     $tipe_kamar = $_POST['tipe_kamar'];
     $jumlah_kamar = $_POST['jumlah_kamar'];
-  
+
     $image_kamar = $_FILES['foto_kamar']['name'];
 
-    $destination_path = getcwd().DIRECTORY_SEPARATOR . 'image/';
+    $destination_path = getcwd().DIRECTORY_SEPARATOR . '../../assets/admin/image/';
 
     $target_path = $destination_path . basename( $_FILES["foto_kamar"]["name"]);
     @move_uploaded_file($_FILES['foto_kamar']['tmp_name'], $target_path);
@@ -57,14 +64,20 @@ include "../layout/header.php";
         <div class="row">
             <div class="col-2">
                 <div class="list-group">
-                    <a href="indexx.php" class="list-group-item list-group-action" aria-current="true">
-                        Dashboard
-                    </a>
-                    <a href="../admin/data_kamar.php" class="list-group-item list-group-item-action active">Data Kamar</a>
-                    <a href="../admin/data_kamar.php" class="list-group-item list-group-item-action">Data Fasilitas Kamar</a>
-                    <a href="../admin/data_kamar.php" class="list-group-item list-group-item-action">Data Fasilitas Hotel</a>
-                    <a href="../admin/data_kamar.php" class="list-group-item list-group-item-action">Data Pesanan</a>
-                    <a href="../admin/data_kamar.php" class="list-group-item list-group-item-action">Data User</a>
+                      <a href="../dashboard/dashboard.php" class="list-group-item list-group-action" aria-current="true">
+                          Dashboard
+                      </a>
+
+                      <?php if($_SESSION && $_SESSION['level'] == 'admin') : ?>
+                          <a href="../kamar/data.php" class="list-group-item list-group-item-action active">Data Kamar</a>
+                          <a href="../fasilitas_kamar/data.php" class="list-group-item list-group-item-action">Data Fasilitas Kamar</a>
+                          <a href="../fasilitas_hotel/data.php" class="list-group-item list-group-item-action">Data Fasilitas Hotel</a>
+                          <a href="../user/data.php" class="list-group-item list-group-item-action">Data User</a>
+                      <?php endif; ?>
+
+                      <?php if($_SESSION &&  $_SESSION['level'] == 'admin' || $_SESSION['level'] == 'resepsionis') : ?>
+                          <a href="../pesanan/data.php" class="list-group-item list-group-item-action">Data Pesanan</a>
+                      <?php endif; ?>
                 </div>
             </div>
             <div class="col-10">

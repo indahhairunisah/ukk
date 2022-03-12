@@ -25,7 +25,7 @@
 include "../layout/navbar2.php";
 ?>
 
-<div class="container-fluid bg-light text-dark p-4 mt-4">
+<div class="container-fluid bg-light text-dark p-4 ">
         <div class="row">
             <div class="col-2">
                 <div class="list-group">

@@ -5,7 +5,7 @@ session_start();
 $id = $_GET && $_GET['id'] ? $_GET['id'] : 0;
 $dataById = [];
 if($id) {
-    $sql = "SELECT * FROM fasilitas_hotel WHERE id_fasilitas_hotel='$id'";
+    $sql = "SELECT * FROM user WHERE id_user='$id'";
     $result = $koneksi->query($sql);
     $dataById = $result->fetch_assoc();
 }
@@ -13,21 +13,15 @@ if($id) {
 $alert = false;
 
 if (isset($_POST['simpan'])) {
-    $id_fasilitas_hotel = $_POST['id_fasilitas_hotel'];
-    $image_fasilitas_hotel = $_FILES['foto_fasilitas_hotel']['name'];
-    $fasilitas_hotel = $_POST['fasilitas_hotel'];
-    $ukuran_fh = $_POST['ukuran_fh'];
-
-    $destination_path = '../../assets/admin/image/';
-
-    $target_path = $destination_path . basename( $_FILES["foto_fasilitas_hotel"]["name"]);
-    @move_uploaded_file($_FILES['foto_fasilitas_hotel']['tmp_name'], $target_path);
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $level = $_POST['level'];
 
     if($id) {
-        $sql = "UPDATE fasilitas_hotel SET id_fasilitas_hotel='$id_fasilitas_hotel', ukuran_fh='$ukuran_fh', fasilitas_hotel='$fasilitas_hotel', image_fasilitas_hotel='$image_fasilitas_hotel' WHERE id_fasilitas_hotel='$id_fasilitas_hotel'";
+        $sql = "UPDATE user SET username='$username', password='$password', level='$level' WHERE id_user='$id'";
     }else {
-        $sql = "INSERT INTO fasilitas_hotel (id_fasilitas_hotel,fasilitas_hotel, image_fasilitas_hotel, ukuran_fh)
-        VALUES ('$id_fasilitas_hotel', '$fasilitas_hotel', '$image_fasilitas_hotel', '$ukuran_fh')";
+        $sql = "INSERT INTO user ( username, password, level)
+        VALUES ('$username', '$password', '$level')";
     }
     
     if ($koneksi->query($sql) === TRUE) {
@@ -64,8 +58,8 @@ include "../layout/header.php";
                     <?php if($_SESSION && $_SESSION['level'] == 'admin') : ?>
                         <a href="../kamar/data.php" class="list-group-item list-group-item-action">Data Kamar</a>
                         <a href="../fasilitas_kamar/data.php" class="list-group-item list-group-item-action">Data Fasilitas Kamar</a>
-                        <a href="../fasilitas_hotel/data.php" class="list-group-item list-group-item-action active">Data Fasilitas Hotel</a>
-                        <a href="../user/data.php" class="list-group-item list-group-item-action">Data User</a>
+                        <a href="../fasilitas_hotel/data.php" class="list-group-item list-group-item-action">Data Fasilitas Hotel</a>
+                        <a href="../user/data.php" class="list-group-item list-group-item-action active">Data User</a>
                     <?php endif; ?>
 
                     <?php if($_SESSION &&  $_SESSION['level'] == 'admin' || $_SESSION['level'] == 'resepsionis') : ?>
@@ -82,34 +76,36 @@ include "../layout/header.php";
                 </nav>
                 <div class="card">
                     <div class="card-body">
-                        <h2>INPUT FASILITAS HOTEL</h2>
+                        <h2>INPUT USER</h2>
 
                         <?php if ($alert) : ?>
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                Data Fasilitas Hotel Berhasil <?= $id ? 'diubah' : 'ditambahkan' ?> 
+                                Data User Berhasil <?= $id ? 'diubah' : 'ditambahkan' ?> 
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php endif;  ?>
 
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">No Hotel</label>
-                                <input type="text" required name="id_fasilitas_hotel" value="<?= $dataById && $dataById['id_fasilitas_hotel'] ? $dataById['id_fasilitas_hotel'] : '' ?>" class="form-control" id="exampleFormControlInput1">
+                                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                                <input type="text" required value="<?= $dataById && $dataById['username'] ? $dataById['username'] : '' ?>" name="username" class="form-control" id="exampleFormControlInput1">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Nama Fasilitas hotel</label>
-                                <input type="text" required value="<?= $dataById && $dataById['fasilitas_hotel'] ? $dataById['fasilitas_hotel'] : '' ?>" name="fasilitas_hotel" class="form-control" id="exampleFormControlInput1">
+                                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                <input type="text" required value="<?= $dataById && $dataById['password'] ? $dataById['password'] : '' ?>" name="password" class="form-control" id="exampleFormControlInput1">
                             </div>
+
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Foto Fasilitas hotel</label>
-                                <input type="file" name="foto_fasilitas_hotel" class="form-control" id="exampleFormControlInput1">
+                                <label for="tipe_kamar" class="form-label">Level</label>
+                                <select class="form-select" name="level" aria-label="Default select example">
+                                    <option selected>Pilih Level</option>
+                                    <option value="admin" <?= $dataById && $dataById['level'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+                                    <option value="resepsionis" <?= $dataById && $dataById['level'] == 'resepsionis' ? 'selected' : '' ?>>Resepsionis</option>
+                                </select>
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Ukuran Fasilitas Hotel</label>
-                                <input type="text" name="ukuran_fh"  required value="<?= $dataById && $dataById['ukuran_fh'] ? $dataById['ukuran_fh'] : '' ?>"  class="form-control" id="exampleFormControlInput1">
-                            </div>
+                            
                             <div class="mb-3 d-flex justify-content-between">
-                                <a href="/hotelindahhai/admin/fasilitas_hotel/data.php" class="btn btn-outline-primary">Kembali</a>
+                                <a href="/hotelindahhai/admin/user/data.php" class="btn btn-outline-primary">Kembali</a>
                                 <button class="btn btn-info" name="simpan" type="submit">
                                     Simpan
                                 </button>

@@ -22,7 +22,7 @@ include "../layout/header.php";
     include "../layout/navbar2.php";
     ?>
 
-    <div class="container-fluid bg-light text-dark p-4 mt-4">
+    <div class="container-fluid bg-light text-dark p-4">
         <div class="row">
             <div class="col-2">
                 <div class="list-group">
@@ -53,7 +53,7 @@ include "../layout/header.php";
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <h4>Data Kamar</h4>
-                            <a href="/hotelindahhai/admin/form_data_kamar.php" class="btn btn-primary">Tambah Data Kamar</a>
+                            <a href="/hotelindahhai/admin/kamar/form.php" class="btn btn-primary">Tambah Data Kamar</a>
                         </div>
                         <hr>
                         <table class="table table-striped table-hover table-bordered">
@@ -76,8 +76,8 @@ include "../layout/header.php";
                                             <img src="/hotelindahhai/admin/image/<?= $row['image_kamar'] ?>" width="50px" alt="">
                                         </td>
                                         <td>
-                                            <a href="/hotelindahhai/admin/form_data_kamar.php?id=<?= $row['id'] ?>" class="btn btn-warning">Ubah</a>
-                                            <a href="/hotelindahhai/admin/delete_data_kamar.php?id=<?= $row['id'] ?>" class="btn btn-danger">Hapus</a>
+                                            <a href="/hotelindahhai/admin/kamar/form.php?id=<?= $row['id'] ?>" class="btn btn-warning">Ubah</a>
+                                            <a href="/hotelindahhai/admin/kamar/delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ??')" class="btn btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php endwhile; ?>

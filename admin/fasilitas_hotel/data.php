@@ -25,7 +25,7 @@
 include "../layout/navbar2.php";
 ?>
 
-<div class="container-fluid bg-light text-dark p-4 mt-4">
+<div class="container-fluid bg-light text-dark p-4">
         <div class="row">
             <div class="col-2">
                 <div class="list-group">
@@ -56,7 +56,7 @@ include "../layout/navbar2.php";
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <h4>Data Fasilitas Hotel</h4>
-                            <a href="/hotelindahhai/admin/form_data_fasilitas_hotel.php" class="btn btn-primary">Tambah Data Fasilitas Hotel</a>
+                            <a href="/hotelindahhai/admin/fasilitas_hotel/form.php" class="btn btn-primary">Tambah Data Fasilitas Hotel</a>
                         </div>
                         <hr>
                         <table class="table table-striped table-hover table-bordered">
@@ -79,8 +79,8 @@ include "../layout/navbar2.php";
                                         </td>
                                         <td scope="row"><?= $row['ukuran_fh'] ?></td>
                                         <td>
-                                            <a href="/hotelindahhai/admin/form_fasilitas_hotel.php?id=<?= $row['id'] ?>" class="btn btn-warning">Ubah</a>
-                                            <a href="/hotelindahhai/admin/delete_fasilitas_hotel.php?id=<?= $row['id'] ?>" class="btn btn-danger">Hapus</a>
+                                            <a href="/hotelindahhai/admin/fasilitas_hotel/form.php?id=<?= $row['id_fasilitas_hotel'] ?>" class="btn btn-warning">Ubah</a>
+                                            <a href="/hotelindahhai/admin/fasilitas_hotel/delete.php?id=<?= $row['id_fasilitas_hotel'] ?>" class="btn btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php endwhile; ?>
