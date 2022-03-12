@@ -45,12 +45,12 @@ if (isset($_POST['simpan'])) {
 <html lang="en">
 
 <?php
-include "../admin/layout/header.php";
+include "../layout/header.php";
 ?>
 
 <body>
     <?php
-    include "../admin/layout/navbar2.php";
+    include "../layout/navbar2.php";
     ?>
 
     <div class="container-fluid bg-light text-dark p-4 mt-4">
@@ -114,7 +114,7 @@ include "../admin/layout/header.php";
 
 
     <?php
-    include "layout/footer.php";
+    include "../layout/footer.php";
 
     ?>
 

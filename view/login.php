@@ -1,10 +1,11 @@
 <?php
 include '../model/koneksi.php';
+include './layout/header.php';
 
 session_start();
 
 if($_SESSION && !$_SESSION['daftar_sukses']) {
-    header("location: /hotelindahhai/admin/pages/dashboard/dashboard.php");
+    header("location: /hotelindahhai/admin/dashboard/dashboard.php");
 }
 
 $alertMessage = "";
@@ -28,7 +29,7 @@ if(isset($_POST['login'])) {
         }else {
             $_SESSION["username"] = $userDB['username'];
             $_SESSION["level"] = $userDB['level'];
-            header("location: ../admin/pages/dashboard/dashboard.php");
+            header("location: ../admin/dashboard/dashboard.php");
         }
     }else if(!$userDB) {
         $alertMessage = "Username  tidak terdaftar";
@@ -38,19 +39,6 @@ if(isset($_POST['login'])) {
 
 ?>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
 
 <style>
     body {

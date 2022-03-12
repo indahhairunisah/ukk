@@ -1,5 +1,5 @@
 <?php 
- include "../admin/layout/header.php";
+ include "../layout/header.php";
  include "../../model/koneksi.php";
 ?>
 
@@ -36,5 +36,5 @@ include 'tambah-data.php'
 
 
 <?php
-//  include "../admin/layout/footer.php"
+//  include "../layout/footer.php"
 ?>

@@ -16,32 +16,32 @@
 <html lang="en">
 
 <?php
-    include "../admin/layout/header.php";
+    include "../layout/header.php";
 ?>
 
 <body>
     
 <?php
-include "../admin/layout/navbar2.php";
+include "../layout/navbar2.php";
 ?>
 
 <div class="container-fluid bg-light text-dark p-4 mt-4">
         <div class="row">
             <div class="col-2">
                 <div class="list-group">
-                    <a href="../admin/dashboard.php" class="list-group-item list-group-action" aria-current="true">
+                    <a href="../dashboard/dashboard.php" class="list-group-item list-group-action" aria-current="true">
                         Dashboard
                     </a>
 
                     <?php if($_SESSION && $_SESSION['level'] == 'admin') : ?>
-                        <a href="../admin/data_kamar.php" class="list-group-item list-group-item-action">Data Kamar</a>
-                        <a href="../admin/data_fasilitas_kamar.php" class="list-group-item list-group-item-action">Data Fasilitas Kamar</a>
-                        <a href="../admin/data_fasilitas_hotel.php" class="list-group-item list-group-item-action active">Data Fasilitas Hotel</a>
-                        <a href="../admin/data_user.php" class="list-group-item list-group-item-action">Data User</a>
+                        <a href="../kamar/data.php" class="list-group-item list-group-item-action">Data Kamar</a>
+                        <a href="../fasilitas_kamar/data.php" class="list-group-item list-group-item-action">Data Fasilitas Kamar</a>
+                        <a href="../fasilitas_hotel/data.php" class="list-group-item list-group-item-action active">Data Fasilitas Hotel</a>
+                        <a href="../user/data.php" class="list-group-item list-group-item-action">Data User</a>
                     <?php endif; ?>
 
                     <?php if($_SESSION &&  $_SESSION['level'] == 'admin' || $_SESSION['level'] == 'resepsionis') : ?>
-                        <a href="../admin/data_pesanan.php" class="list-group-item list-group-item-action">Data Pesanan</a>
+                        <a href="../pesanan/data.php" class="list-group-item list-group-item-action">Data Pesanan</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -94,7 +94,7 @@ include "../admin/layout/navbar2.php";
     </div>
 
     <?php
-    include "layout/footer.php"; 
+    include "../layout/footer.php"; 
     ?>
 </body>
 

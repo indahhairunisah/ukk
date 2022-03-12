@@ -149,5 +149,5 @@ include "layout/header.php";
 </body>
 
 <?php
-    include "layout/footer.php";
+    include "../layout/footer.php";
 ?>

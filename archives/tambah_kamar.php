@@ -1,6 +1,6 @@
 <?php 
  
- include "../admin/layout/header.php";
+ include "../layout/header.php";
 ?>
 
     <!-- <div class="container">
@@ -140,4 +140,4 @@
         </div>
     </div>
 
-<!-- <?php include "layout/footer.php" ?> -->
+<!-- <?php include "../layout/footer.php" ?> -->

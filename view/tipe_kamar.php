@@ -1,9 +1,9 @@
 <?php
-    include "../admin/layout/header.php";
+    include "./layout/header.php";
 ?>
 
 <?php
-    include "../admin/layout/navbar.php";
+    include "./layout/navbar.php";
 ?>
 
 <body style="background-color: #e6e6e6; ">
@@ -40,5 +40,5 @@
 </body>
 
 <?php
-    include "../admin/layout/footer.php";
+    include "./layout/footer.php";
 ?>

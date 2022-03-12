@@ -1,9 +1,9 @@
 <?php
-include '../layout/header.php';
+include './layout/header.php';
 ?>
 
 <?php
-include '../layout/navbar.php';
+include './layout/navbar.php';
 ?>
 
 <body style="background-color: #e6e6e6;">
@@ -203,5 +203,5 @@ include '../layout/navbar.php';
 </body>
 
     <?php
- include "../layout/footer.php";
+ include "./layout/footer.php";
     ?>
