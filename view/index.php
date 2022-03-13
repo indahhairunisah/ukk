@@ -18,7 +18,7 @@ include './layout/navbar.php';
                     <div class="container">
                         <h1 class="text-white mt-5 pt-5" style="font-size: 70px;"> <b>SHILLA HOTEL</b></h1>
                         <p class="text-white" style="width: 40%; font-size:20px" >Temukan Kenyamanan Dan Kemewahan Pada Hotel Ini, Kemudian Bersenang-Senang lah Dengan Orang Tersayang Anda.</p>
-                        <a type="submit" class="text-white btn btn-info text-shadow px-4 py-2" href="/hotelindahhai/view/tipe_kamar.php"> <b>LIHAT KAMAR</b></a>
+                        <a type="submit" class="text-white btn btn-primary text-shadow px-4 py-3" href="/hotelindahhai/view/tipe_kamar.php"> <b>LIHAT KAMAR</b></a>
                     </div>
                     <!-- <br><br><br><br><br> -->
                     <br>
@@ -54,7 +54,7 @@ include './layout/navbar.php';
                                                 </div>
                                                 </div>
                                                 <div class="col">
-                                                    <button type="submit" class="btn btn-primary w-100" style="height: 100%;">Pesan Sekarang</button>
+                                                    <button type="submit" class="btn btn-info w-100" style="height: 100%;">Reservasi Sekarang</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -68,13 +68,13 @@ include './layout/navbar.php';
                 </div>
                 <!-- <hr style="background-color: #fff;"> -->
         </div>
+    </div>
         <div class="container pt-5" style="color: #2d2d2d;">
             <h2 style="text-align: center;" class="border-bottom border-dark mb-3"> <b>ABOUT US</b></h2>
             <p style="font-size: 18px"> &emsp; &emsp; Hotel Shilla terletak di pusat kota Seoul yang memiliki luas kurang lebih 1 hektar , The Shilla Seoul adalah Hotel bintang 5 nominasi Forbes selama 4 tahun berturut-turut dari 2019 hingga 2022. Hotel Shilla adalah salah satu dalam jajaran The Leading Hotels of the World. </p>
             <p style="font-size: 18px;"> &emsp; &emsp; Hotel Shilla mulai beroperasi pada bulan Maret 1979 di bawah arahan dari Lee Byung-chull, pendiri Samsung Group. Sebelum tahun 1979, hotel tersebut merupakan tempat menginap bagi tamu Republik Korea saat masih dipimpin oleh Park Chung-hee. Hotel Shilla fokus pada "harmoni dan kecantikan dari modernisme dan tradisi". Pada bulan Januari 2008, The Shilla dipilih sebagai salah satu dari 500 hotel terbaik di dunia oleh Travel & Leisure. </p>
-        <br>
+            <br>
         </div>
-    </div>
 
 
                 
@@ -90,7 +90,7 @@ include './layout/navbar.php';
                         <img src="../assets/view/image/standard.png" class="card-img-top p-2" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">STANDARD</h5>
-                            <p class="card-text">LED TV, AC, Free Wifi Dst</p>
+                            <p class="card-text">Fasilitas : LED TV, AC, Free Wifi Dst</p>
                             
                         </div>
                     </div>
@@ -101,7 +101,7 @@ include './layout/navbar.php';
                         <img src="assets/seperior.jpg" class="card-img-top p-2" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">SUPERIOR</h5>
-                            <p class="card-text">LED TV, AC, Free Wifi, Cofee Maker Dst</p>
+                            <p class="card-text">Fasilitas : LED TV, AC, Free Wifi, Cofee Maker Dst</p>
                             
                         </div>
                     </div>
@@ -112,10 +112,13 @@ include './layout/navbar.php';
                         <img src="assets/deluxe.jpg" class="card-img-top p-2" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">DELUXE</h5>
-                            <p class="card-text">LED TV, AC, Free Wifi, Cofee Maker, Sofa Dst</p>
+                            <p class="card-text">Fasilitas : LED TV, AC, Free Wifi, Cofee Maker, Sofa Dst</p>
                             
                         </div>
                     </div>
+                </div>
+                <div class="d-grid  d-md-flex justify-content-md-end">
+                    <a href="fasilitas_kamar_web.php" class="btn btn-info my-4">Lihat Selengkapnya</a>
                 </div>
             </div>
         </div>

@@ -142,7 +142,7 @@ include "../layout/navbar2.php";
 
 
 
-
+                                        <!-- button untuk update status (pending,check-in,check-out) -->
                                         <div class="btn-group d-block text-center" role="group" aria-label="Basic mixed styles example">
                                             <form action="" method="post">
                                                 <input type="text" value="<?= $row['id_kamar'] ?>" class="d-none" name="id_kamar">

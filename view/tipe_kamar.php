@@ -2,9 +2,6 @@
 include "../model/koneksi.php";
 session_start();
 
-if(!$_SESSION) {
-    header("location: /hotelindahhai/view/login.php");
-}
 $sql = "SELECT * FROM kamar";
 $result = $koneksi->query($sql);
 

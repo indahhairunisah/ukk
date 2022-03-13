@@ -7,6 +7,7 @@ if(!$_SESSION) {
     header("location: /hotelindahhai/view/login.php");
 }
 
+
 $list_kamar = $koneksi->query("SELECT * FROM kamar");
 $list_fasilitas_kamar = $koneksi->query("SELECT * FROM fasilitas_kamar");
 
@@ -22,6 +23,7 @@ if($id) {
 
 $alert = false;
 
+//untuk menyimpan data detail kamar
 if (isset($_POST['simpan'])) {
     $id_kamar = $_POST['tipe_kamar'];
     $id_fasilitas_kamar = $_POST['fasilitas_kamar'];
