@@ -71,7 +71,7 @@ include "../layout/navbar2.php";
         <div class="col-10">
             <nav aria-label="breacrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="indexx.php">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="../dashboard/dashboard.php">Admin</a></li>
                     <li class="breadcrumb-item active" aria-current="page"><?= $id ? 'Edit' : 'Tambah' ?> Fasilitas Kamar</a></li>
                 </ol>
             </nav>

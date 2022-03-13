@@ -16,9 +16,8 @@
 <?php
     include "../layout/header.php";
 ?>
-
-<body>
-    
+<!-- class=" bg-light text-dark p-4 -->
+<body class="bg-light">
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -30,12 +29,12 @@
   //   include "layout/aside.php" ?>
   <div class="content-wrapper  px-4">
     <div class="content-header">
-      <div dir="rtl" class="p-2">
+      <div dir="rtl" class="p-2 pt-3">
+      <a href="/hotelindahhai/admin/fasilitas_kamar/form.php" type="button" class="btn btn-primary btn-sm">
+            Tambah Fasilitas
+          </a>
         <a href="/hotelindahhai/admin/fasilitas_kamar/form_detail.php" type="button" class="btn btn-info text-white btn-sm">
             Tambah Detail Kamar
-          </a>
-          <a href="/hotelindahhai/admin/fasilitas_kamar/form.php" type="button" class="btn btn-primary btn-sm">
-            Tambah Fasilitas
           </a>
       </div>
       <div class="row">
@@ -61,14 +60,14 @@
         <div class="col-6">
             <nav aria-label="breacrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../admin/dashboard.php"><?= $_SESSION["level"] ?></a></li> 
+                    <li class="breadcrumb-item"><a href="../dashboard/dashboard.php"><?= $_SESSION["level"] ?></a></li> 
                     <li class="breadcrumb-item active" aria-current="page">Data Fasilitas Kamar</a></li>
                 </ol>
             </nav>
           <div class="card">
             <div class="card-body">
               <table style="width: 100%;" class="table table-bordered table-striped">
-                <tr>
+                <tr class="text-center">
                   <th>No</th>
                   <th>Tipe</th>
                   <th>Nama Fasilitas</th>

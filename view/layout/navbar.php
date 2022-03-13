@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" style="font-size: 16px;">
           <li class="nav-item">
-            <a class="nav-link active ms-2" style="color: white;"  aria-current="page" href="#"> <b> HOME</b></a>
+            <a class="nav-link active ms-2" style="color: white;"  aria-current="page" href="../index.php"> <b> HOME</b></a>
           </li>
           <li class="nav-item">
             <a class="nav-link ms-2" style="color: white;"  href="index.php#tipekamar">Tipe Kamar</a>

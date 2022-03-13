@@ -45,7 +45,7 @@ include "../layout/header.php";
             <div class="col-10">
                 <nav aria-label="breacrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../admin/dashboard.php"><?= $_SESSION["level"] ?></a></li> 
+                        <li class="breadcrumb-item"><a href="../dashboard/dashboard.php"><?= $_SESSION["level"] ?></a></li> 
                         <li class="breadcrumb-item active" aria-current="page">Data User</a></li>
                     </ol>
                 </nav>
@@ -58,7 +58,7 @@ include "../layout/header.php";
                         <hr>
                         <table class="table table-striped table-hover table-bordered">
                             <thead>
-                                <tr>
+                                <tr class="text-center" >
                                     <th scope="col">Username</th>
                                     <th scope="col">Password</th>
                                     <th scope="col">Level</th>
@@ -73,7 +73,7 @@ include "../layout/header.php";
                                         <td scope="row"><?= $row['username'] ?></td>
                                         <td scope="row"><?= $row['password'] ?></td>
                                         <td scope="row"><?= $row['level'] ?></td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="/hotelindahhai/admin/user/form.php?id=<?= $row['id_user'] ?>" class="btn btn-warning">Ubah</a>
                                             <a href="/hotelindahhai/admin/user/delete.php?id=<?= $row['id_user'] ?>" class="btn btn-danger">Hapus</a>
                                         </td>

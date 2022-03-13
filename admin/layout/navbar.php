@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-info"  >
   <div class="container-fluid">
-    <a class="navbar-brand px-5" style="color: white ; font-size:24px;" href="#"> <b>SHILLA HOTEL</b></a>
+    <a class="navbar-brand px-5" style="color: white ; font-size:24px;" href="../../index.php"> <b>SHILLA HOTEL</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" style="font-size: 16px;">
           <li class="nav-item">
-            <a class="nav-link active ms-2" style="color: white;"  aria-current="page" href="#"> <b> HOME</b></a>
+            <a class="nav-link active ms-2" style="color: white;"  aria-current="page" href="index.php"> <b> HOME</b></a>
           </li>
           <li class="nav-item">
             <a class="nav-link ms-2" style="color: white;"  href="index.php#tipekamar">Tipe Kamar</a>

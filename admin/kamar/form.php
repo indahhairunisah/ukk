@@ -23,11 +23,9 @@ if (isset($_POST['simpan'])) {
     $id_kamar = $_POST['id_kamar'];
     $tipe_kamar = $_POST['tipe_kamar'];
     $jumlah_kamar = $_POST['jumlah_kamar'];
-
     $image_kamar = $_FILES['foto_kamar']['name'];
 
     $destination_path = getcwd().DIRECTORY_SEPARATOR . '../../assets/admin/image/';
-
     $target_path = $destination_path . basename( $_FILES["foto_kamar"]["name"]);
     @move_uploaded_file($_FILES['foto_kamar']['tmp_name'], $target_path);
 
@@ -83,10 +81,12 @@ include "../layout/header.php";
             <div class="col-10">
                 <nav aria-label="breacrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="indexx.php">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="../dashboard/dashboard.php">Admin</a></li>
                         <li class="breadcrumb-item active" aria-current="page"><?= $id ? 'Edit' : 'Tambah' ?> Data Kamar</a></li>
                     </ol>
                 </nav>
+                
+               
                 <div class="card">
                     <div class="card-body">
                         <h2>INPUT DATA KAMAR</h2>
@@ -100,14 +100,14 @@ include "../layout/header.php";
 
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">No Kamar</label>
-                                <input type="text" required name="id_kamar" value="<?= $dataById && $dataById['id_kamar'] ? $dataById['id_kamar'] : '' ?>" class="form-control" id="exampleFormControlInput1">
+                                <label for="exampleFormControlInput1" class="form-label">Id Kamar</label>
+                                <input type="text" required name="id_kamar" value="<?= $dataById && $dataById['id_kamar'] ? $dataById['id_kamar'] : '' ?>" class="form-control" id="exampleFormControlInput1" placeholder="R-001">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Tipe Kamar</label>
-                                <input type="text" required value="<?= $dataById && $dataById['tipe_kamar'] ? $dataById['tipe_kamar'] : '' ?>" name="tipe_kamar" class="form-control" id="exampleFormControlInput1">
+                                <input type="text" required value="<?= $dataById && $dataById['tipe_kamar'] ? $dataById['tipe_kamar'] : '' ?>" name="tipe_kamar" class="form-control" id="exampleFormControlInput1" placeholder="Deluxe">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 ">
                                 <label for="exampleFormControlInput1" class="form-label">Jumlah Kamar</label>
                                 <input type="text" required value="<?= $dataById && $dataById['jumlah_kamar'] ? $dataById['jumlah_kamar'] : '' ?>" name="jumlah_kamar" class="form-control" id="exampleFormControlInput1">
                             </div>
@@ -116,13 +116,14 @@ include "../layout/header.php";
                                 <input type="file" name="foto_kamar" class="form-control" id="exampleFormControlInput1">
                             </div>
                             <div class="mb-3 d-flex justify-content-between">
-                                <a href="/hotelindahhai/admin/data_kamar.php" class="btn btn-outline-primary">Kembali</a>
+                                <a href="/hotelindahhai/admin/kamar/data.php" class="btn btn-outline-primary">Kembali</a>
                                 <button class="btn btn-info" name="simpan" type="submit">
                                     Simpan
                                 </button>
                             </div>
 
                         </form>
+
                     </div>
                 </div>
             </div>

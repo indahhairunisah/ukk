@@ -76,7 +76,7 @@ include "../layout/header.php";
             <div class="col-10">
                 <nav aria-label="breacrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="dashboard.php">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="../dashboard/dashboard.php">Admin</a></li>
                         <li class="breadcrumb-item active" aria-current="page"><?= $id ? 'Edit' : 'Tambah' ?> Fasilitas Hotel</a></li>
                     </ol>
                 </nav>
@@ -93,12 +93,12 @@ include "../layout/header.php";
 
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">No Hotel</label>
-                                <input type="text" required name="id_fasilitas_hotel" value="<?= $dataById && $dataById['id_fasilitas_hotel'] ? $dataById['id_fasilitas_hotel'] : '' ?>" class="form-control" id="exampleFormControlInput1">
+                                <label for="exampleFormControlInput1" class="form-label">Id Fasilitas Hotel</label>
+                                <input type="text" required name="id_fasilitas_hotel" value="<?= $dataById && $dataById['id_fasilitas_hotel'] ? $dataById['id_fasilitas_hotel'] : '' ?>" class="form-control" id="exampleFormControlInput1" placeholder="FH01">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nama Fasilitas hotel</label>
-                                <input type="text" required value="<?= $dataById && $dataById['fasilitas_hotel'] ? $dataById['fasilitas_hotel'] : '' ?>" name="fasilitas_hotel" class="form-control" id="exampleFormControlInput1">
+                                <input type="text" required value="<?= $dataById && $dataById['fasilitas_hotel'] ? $dataById['fasilitas_hotel'] : '' ?>" name="fasilitas_hotel" class="form-control" id="exampleFormControlInput1" placeholder="SwimmingPool Indoor">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Foto Fasilitas hotel</label>
@@ -106,9 +106,9 @@ include "../layout/header.php";
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Ukuran Fasilitas Hotel</label>
-                                <input type="text" name="ukuran_fh"  required value="<?= $dataById && $dataById['ukuran_fh'] ? $dataById['ukuran_fh'] : '' ?>"  class="form-control" id="exampleFormControlInput1">
+                                <input type="text" name="ukuran_fh"  required value="<?= $dataById && $dataById['ukuran_fh'] ? $dataById['ukuran_fh'] : '' ?>"  class="form-control" id="exampleFormControlInput1" placeholder="100 m2">
                             </div>
-                            <div class="mb-3 d-flex justify-content-between">
+                            <div class="mb-3 d-flex justify-content-between text-center">
                                 <a href="/hotelindahhai/admin/fasilitas_hotel/data.php" class="btn btn-outline-primary">Kembali</a>
                                 <button class="btn btn-info" name="simpan" type="submit">
                                     Simpan

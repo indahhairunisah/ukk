@@ -48,7 +48,7 @@ include "../layout/navbar2.php";
             <div class="col-10">
                 <nav aria-label="breacrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../admin/dashboard.php"><?= $_SESSION["level"] ?></a></li> 
+                        <li class="breadcrumb-item"><a href="../dashboard/dashboard.php"><?= $_SESSION["level"] ?></a></li> 
                         <li class="breadcrumb-item active" aria-current="page">Data Fasilitas Hotel</a></li>
                     </ol>
                 </nav>
@@ -61,9 +61,9 @@ include "../layout/navbar2.php";
                         <hr>
                         <table class="table table-striped table-hover table-bordered">
                             <thead>
-                                <tr>
-                                    <th scope="col">Fasilitas Hotel</th>
+                                <tr class="text-center">
                                     <th scope="col">Image</th>
+                                    <th scope="col">Fasilitas Hotel</th>
                                     <th scope="col">Ukuran</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -73,12 +73,12 @@ include "../layout/navbar2.php";
                                 <?php if ($result->num_rows > 0) {  ?>
                                     <?php while($row = $result->fetch_assoc()) : ?>
                                     <tr>
-                                        <td scope="row"><?= $row['fasilitas_hotel'] ?></td>
-                                        <td scope="row">
-                                            <img src="/hotelindahhai/admin/image/<?= $row['image_fasilitas_hotel'] ?>" width="50px" alt="">
+                                        <td scope="row" class="text-center">
+                                            <img src="/hotelindahhai/assets/admin/image/<?= $row['image_fasilitas_hotel'] ?>" width="120px" alt="">
                                         </td>
-                                        <td scope="row"><?= $row['ukuran_fh'] ?></td>
-                                        <td>
+                                        <td scope="row"><?= $row['fasilitas_hotel'] ?></td>
+                                        <td scope="row" class="text-center"><?= $row['ukuran_fh'] ?></td>
+                                        <td class="text-center">
                                             <a href="/hotelindahhai/admin/fasilitas_hotel/form.php?id=<?= $row['id_fasilitas_hotel'] ?>" class="btn btn-warning">Ubah</a>
                                             <a href="/hotelindahhai/admin/fasilitas_hotel/delete.php?id=<?= $row['id_fasilitas_hotel'] ?>" class="btn btn-danger">Hapus</a>
                                         </td>

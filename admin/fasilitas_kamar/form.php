@@ -93,7 +93,7 @@ include "../layout/navbar2.php";
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Id Fasilitas Kamar</label>
-                            <input type="text" required name="id_fasilitas_kamar" value="<?= $dataById && $dataById['id_fasilitas_kamar'] ? $dataById['id_fasilitas_kamar'] : '' ?>" class="form-control" id="exampleFormControlInput1" placeholder="FK-01">
+                            <input type="text" required name="id_fasilitas_kamar" value="<?= $dataById && $dataById['id_fasilitas_kamar'] ? $dataById['id_fasilitas_kamar'] : '' ?>" class="form-control" id="exampleFormControlInput1" placeholder="FK01">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama Fasilitas Kamar</label>
